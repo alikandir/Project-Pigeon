@@ -1,0 +1,15 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1703329423
+icon.svg::CompressedTexture2D::5316998823312950497::1703175399::1703175412::1::::<><>::
+::res://scenes/::1703330038
+game.tscn::PackedScene::3118429301369716915::1703330060::0::1::::<><>::res://scripts/game.gd<>uid://de82qgrnv8shf::::res://scenes/player.tscn<>res://scripts/ExampleLevel.gd<>res://scripts/saver_and_loader.gd
+player.tscn::PackedScene::7509810165044395763::1703329604::0::1::::<><>::uid://bkwby5fnqqhgs::::res://sprites/Red_Bird.png<>res://scripts/player.gd
+::res://scripts/::1703330038
+ExampleLevel.gd::GDScript::-1::1703282048::0::1::::<>StaticBody2D<>::
+game.gd::GDScript::-1::1703281946::0::1::::<>Node2D<>::
+player.gd::GDScript::-1::1703329477::0::1::::<>CharacterBody2D<>::
+player_stats.gd::GDScript::-1::1703179716::0::1::::PlayerStats<>Resource<>::
+saver_and_loader.gd::GDScript::-1::1703330060::0::1::::<>Node<>::
+save_game.gd::GDScript::-1::1703282755::0::1::::SaveGame<>Resource<>::
+::res://sprites/::1703281594
+Red_Bird.png::CompressedTexture2D::3133830590746429402::1703281591::1703281594::1::::<><>::
