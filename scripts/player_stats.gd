@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerStats
 
-@export var move_speed:float=10.0
+@export var move_speed:float=100.0
 @export var damage:float=1.0
 
 func IncreaseMoveSpeed(amount:float) -> void:
