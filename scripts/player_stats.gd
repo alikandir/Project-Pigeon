@@ -9,3 +9,6 @@ func IncreaseMoveSpeed(amount:float) -> void:
 
 func IncreaseDamage(amount:float) -> void:
 	damage+=amount
+
+func GetMoveSpeed():
+	return move_speed

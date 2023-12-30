@@ -1,6 +1,4 @@
 res://scenes/game.tscn
 res://scenes/player.tscn
-res://scripts/player.gd
-res://scripts/saver_and_loader.gd
-res://scripts/player_stats.gd
-res://scripts/game.gd
+res://scenes/virtual_joystick.tscn
+res://scripts/virtual_joystick.gd
