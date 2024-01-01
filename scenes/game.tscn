@@ -10,8 +10,9 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_m4cev")
 
-[node name="Player" parent="." instance=ExtResource("2_x1xau")]
+[node name="Player" parent="." node_paths=PackedStringArray("joystick") instance=ExtResource("2_x1xau")]
 position = Vector2(180, 345)
+joystick = NodePath("../CanvasLayer/Joystick")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -50,6 +51,7 @@ offset_left = 786.0
 offset_top = -318.0
 offset_right = 1086.0
 offset_bottom = -18.0
+deadzone_size = 1.0
 
 [node name="ExampleLevel" type="StaticBody2D" parent="."]
 script = ExtResource("3_f8vwv")
