@@ -1,5 +1,4 @@
-res://scenes/virtual_joystick.tscn
 res://scenes/game.tscn
-res://scenes/player.tscn
 res://scripts/player.gd
-res://scripts/joystick.gd
+res://scenes/player.tscn
+res://scenes/virtual_joystick.tscn

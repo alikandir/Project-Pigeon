@@ -60,7 +60,7 @@ script = ExtResource("3_f8vwv")
 color = Color(0.835294, 0.270588, 0.380392, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ExampleLevel"]
-polygon = PackedVector2Array(33, 400, 33, 639, 1141, 645, 1135, 63, 1062, 67, 1067, 615, 71, 600, 59, 148, 18, 147)
+polygon = PackedVector2Array(40, 372, 33, 639, 1141, 645, 1140, 29, 1066, 29, 1067, 615, 71, 600, 79.314, 259.719, 83, 97, 1145, 34, 1138, 14, 85, 27, 25, 25)
 
 [node name="Utilities" type="Node" parent="."]
 
