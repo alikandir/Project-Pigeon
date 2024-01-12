@@ -47,10 +47,10 @@ theme_override_font_sizes/font_size = 32
 text = "Move Speed Up"
 
 [node name="Joystick" parent="CanvasLayer" instance=ExtResource("6_fvs8i")]
-offset_left = 786.0
-offset_top = -318.0
-offset_right = 1086.0
-offset_bottom = -18.0
+offset_left = 73.0
+offset_top = -309.0
+offset_right = 373.0
+offset_bottom = -9.0
 deadzone_size = 1.0
 
 [node name="ExampleLevel" type="StaticBody2D" parent="."]
