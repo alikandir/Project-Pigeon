@@ -47,6 +47,14 @@ radius = 77.026
 script = ExtResource("1_emrij")
 player_stats = ExtResource("2_hiyah")
 
+[node name="BodyParts" type="Node2D" parent="."]
+
+[node name="Beak" type="Sprite2D" parent="BodyParts"]
+
+[node name="Wings" type="Sprite2D" parent="BodyParts"]
+
+[node name="Tail" type="Sprite2D" parent="BodyParts"]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8efid")
 frame_progress = 0.513931
