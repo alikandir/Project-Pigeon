@@ -1,7 +1,6 @@
-res://scenes/player.tscn
-res://scripts/player.gd
+res://scenes/enemy.tscn
+res://scripts/enemy.gd
 res://scenes/game.tscn
-res://scenes/virtual_joystick.tscn
-res://scripts/player_stats.gd
-res://scripts/saver_and_loader.gd
-res://scripts/player_body_parts.gd
+res://scenes/player.tscn
+res://scenes/spawner.tscn
+res://scripts/spawner.gd

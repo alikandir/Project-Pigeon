@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkoucsxhus00n"]
+[gd_scene load_steps=8 format=3 uid="uid://bkoucsxhus00n"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_m4cev"]
 [ext_resource type="PackedScene" uid="uid://de82qgrnv8shf" path="res://scenes/player.tscn" id="2_x1xau"]
 [ext_resource type="Script" path="res://scripts/ExampleLevel.gd" id="3_f8vwv"]
 [ext_resource type="Script" path="res://scripts/saver_and_loader.gd" id="4_4ejsg"]
+[ext_resource type="PackedScene" uid="uid://7mjoq5x80nwc" path="res://scenes/spawner.tscn" id="5_6wpw3"]
 [ext_resource type="Resource" uid="uid://bxny5bfle0pkq" path="res://resources/player_stats.tres" id="5_an8px"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick.tscn" id="6_fvs8i"]
 
@@ -63,6 +64,11 @@ color = Color(0.835294, 0.270588, 0.380392, 1)
 polygon = PackedVector2Array(40, 372, 33, 639, 1141, 645, 1140, 29, 1066, 29, 1067, 615, 71, 600, 79.314, 259.719, 83, 97, 1145, 34, 1138, 14, 85, 27, 25, 25)
 
 [node name="Utilities" type="Node" parent="."]
+
+[node name="Spawner" parent="Utilities" instance=ExtResource("5_6wpw3")]
+position = Vector2(576, 428)
+spawn_rate = 2.0
+spawn_to_left = true
 
 [node name="SaverAndLoader" type="Node" parent="Utilities"]
 script = ExtResource("4_4ejsg")
