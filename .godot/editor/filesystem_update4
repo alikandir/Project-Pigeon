@@ -4,3 +4,6 @@ res://scenes/game.tscn
 res://scenes/player.tscn
 res://scenes/spawner.tscn
 res://scripts/spawner.gd
+res://scenes/upgrade_screen.tscn
+res://scripts/upgrade_screen.gd
+res://scripts/game.gd

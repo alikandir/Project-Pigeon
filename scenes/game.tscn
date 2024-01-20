@@ -54,6 +54,14 @@ offset_right = 373.0
 offset_bottom = -9.0
 deadzone_size = 1.0
 
+[node name="ShopButton" type="Button" parent="CanvasLayer"]
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 146.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 32
+text = "Shop"
+
 [node name="ExampleLevel" type="StaticBody2D" parent="."]
 script = ExtResource("3_f8vwv")
 
@@ -77,3 +85,4 @@ player = ExtResource("5_an8px")
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopButton" to="." method="_on_shop_button_pressed"]
