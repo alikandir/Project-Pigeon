@@ -1,0 +1,14 @@
+Label
+HSlider
+AudioStreamPlayer
+AudioStreamPlayer2D
+Button
+VBoxContainer
+MarginContainer
+Container
+AnimationPlayer
+AnimationTree
+Control
+Node2D
+AnimatedSprite2D
+Node

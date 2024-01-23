@@ -1,0 +1,17 @@
+res://scripts/title_screen.gd
+res://music.tscn
+res://scenes/game.tscn
+res://scenes/player.tscn
+res://scenes/enemy.tscn
+res://scenes/spawner.tscn
+res://scenes/upgrade_screen.tscn
+res://scenes/title_screen.tscn
+res://scenes/options.tscn
+res://scenes/music.tscn
+res://scenes/music.gd
+res://background_music.tscn
+res://scenes/background_music.tscn
+res://HSlider.gd
+res://Audio_Slider.tscn
+res://scenes/Audio_Slider.tscn
+res://default_bus_layout.tres
