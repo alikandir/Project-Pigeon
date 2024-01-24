@@ -1,23 +1,23 @@
 [gd_scene load_steps=10 format=3 uid="uid://de82qgrnv8shf"]
 
-[ext_resource type="Texture2D" uid="uid://bkwby5fnqqhgs" path="res://sprites/Red_Bird.png" id="1_bju3d"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_emrij"]
 [ext_resource type="Resource" uid="uid://bxny5bfle0pkq" path="res://resources/player_stats.tres" id="2_hiyah"]
+[ext_resource type="Texture2D" uid="uid://bkwby5fnqqhgs" path="res://sprites/Red_Bird.png" id="3_crbao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdcuf"]
-atlas = ExtResource("1_bju3d")
+atlas = ExtResource("3_crbao")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgcje"]
-atlas = ExtResource("1_bju3d")
+atlas = ExtResource("3_crbao")
 region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwq4j"]
-atlas = ExtResource("1_bju3d")
+atlas = ExtResource("3_crbao")
 region = Rect2(0, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2eip5"]
-atlas = ExtResource("1_bju3d")
+atlas = ExtResource("3_crbao")
 region = Rect2(256, 256, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8efid"]

@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="ProjectPigeon"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout=""
+
+[autoload]
+
+BackgroundMusic="*res://scenes/background_music.tscn"
 
 [input_devices]
 

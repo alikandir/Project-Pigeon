@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt51glr68mxu5"]
+
+[ext_resource type="PackedScene" uid="uid://bncn8ga765dnt" path="res://scenes/Audio_Slider.tscn" id="1_pcogx"]
+
+[sub_resource type="GDScript" id="GDScript_oaorl"]
+script/source = "extends Control
+
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/title_screen.tscn\")
+
+
+
+"
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_oaorl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+icon_alignment = 1
+
+[node name="MasterVolume" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "MASTER VOLUME"
+
+[node name="Master" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_pcogx")]
+layout_mode = 2
+bus_name = "Master"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
