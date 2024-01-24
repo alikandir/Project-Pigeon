@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkoucsxhus00n"]
+[gd_scene load_steps=10 format=3 uid="uid://bkoucsxhus00n"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_m4cev"]
 [ext_resource type="PackedScene" uid="uid://de82qgrnv8shf" path="res://scenes/player.tscn" id="2_x1xau"]
+[ext_resource type="PackedScene" uid="uid://t25itj8nv2g0" path="res://scenes/area_2d_collision.tscn" id="3_b4mip"]
 [ext_resource type="Script" path="res://scripts/ExampleLevel.gd" id="3_f8vwv"]
 [ext_resource type="Script" path="res://scripts/saver_and_loader.gd" id="4_4ejsg"]
 [ext_resource type="PackedScene" uid="uid://7mjoq5x80nwc" path="res://scenes/spawner.tscn" id="5_6wpw3"]
 [ext_resource type="Resource" uid="uid://bxny5bfle0pkq" path="res://resources/player_stats.tres" id="5_an8px"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick.tscn" id="6_fvs8i"]
+[ext_resource type="Texture2D" uid="uid://bdj1p4plrc5h2" path="res://sprites/target.png" id="9_evhjh"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_m4cev")
@@ -14,6 +16,10 @@ script = ExtResource("1_m4cev")
 [node name="Player" parent="." node_paths=PackedStringArray("joystick") instance=ExtResource("2_x1xau")]
 position = Vector2(180, 345)
 joystick = NodePath("../CanvasLayer/Joystick")
+
+[node name="CollisionCheck" parent="Player" instance=ExtResource("3_b4mip")]
+position = Vector2(-1, 11)
+scale = Vector2(0.355874, 0.355874)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -74,13 +80,23 @@ polygon = PackedVector2Array(40, 372, 33, 639, 1141, 645, 1140, 29, 1066, 29, 10
 [node name="Utilities" type="Node" parent="."]
 
 [node name="Spawner" parent="Utilities" instance=ExtResource("5_6wpw3")]
-position = Vector2(576, 428)
+position = Vector2(586, 422)
 spawn_rate = 2.0
 spawn_to_left = true
 
 [node name="SaverAndLoader" type="Node" parent="Utilities"]
 script = ExtResource("4_4ejsg")
 player = ExtResource("5_an8px")
+
+[node name="Target" type="Sprite2D" parent="." groups=["Enemy"]]
+position = Vector2(835, 455)
+scale = Vector2(0.207597, 0.207597)
+texture = ExtResource("9_evhjh")
+centered = false
+
+[node name="Area2D" parent="Target" instance=ExtResource("3_b4mip")]
+position = Vector2(452.8, 337.192)
+scale = Vector2(1.45179, 1.45179)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]

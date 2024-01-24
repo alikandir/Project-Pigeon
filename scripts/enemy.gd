@@ -3,6 +3,9 @@ class_name Enemy
 @export var direction:int
 @export var speed:float
 
+var max_health = 20
+var current_health = max_health
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

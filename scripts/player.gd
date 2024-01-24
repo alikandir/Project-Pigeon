@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var beak = $BodyParts/Beak
 @onready var wings = $BodyParts/Wings
 @onready var tail = $BodyParts/Tail
+var damage = 10
 
 @export var joystick:CustomVirtualJoystick
 var friction = 2
@@ -18,6 +19,7 @@ func _process(delta: float) -> void:
 	look_at(position + joystick.output) #Movement vektör ile rotation takibi
 	slow_down_inertia(delta)
 	move_player(delta)
+	
 
 
 
@@ -39,3 +41,9 @@ func move_player(delta):
 	if !joystick.is_pressed:return
 	velocity=joystick.output * player_stats.move_speed
 	move_and_slide()
+
+func on_Area2D_body_entered(area):
+	if area.is_in_group("Enemy"):
+		area.apply_damage(damage)
+	print("damage implied")
+	

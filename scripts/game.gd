@@ -40,3 +40,5 @@ func _on_shop_button_pressed():
 	get_node("CanvasLayer").add_child(upgrade_scene)
 	tween.tween_property(upgrade_scene,"size",get_viewport_rect().size,2)
 	get_tree().paused=true
+
+
