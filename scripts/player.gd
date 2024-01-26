@@ -42,8 +42,8 @@ func move_player(delta):
 	velocity=joystick.output * player_stats.move_speed
 	move_and_slide()
 
-func on_Area2D_body_entered(area):
+
+func _on_hit_box_area_area_entered(area):
 	if area.is_in_group("Enemy"):
-		area.apply_damage(damage)
-	print("damage implied")
-	
+		area.apply_damage(damage,position.direction_to(area.global_position))
+		print("damage implied")

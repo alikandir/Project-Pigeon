@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://de82qgrnv8shf"]
+[gd_scene load_steps=11 format=3 uid="uid://de82qgrnv8shf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_emrij"]
 [ext_resource type="Resource" uid="uid://bxny5bfle0pkq" path="res://resources/player_stats.tres" id="2_hiyah"]
@@ -43,6 +43,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_br3gd"]
 radius = 77.026
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n871e"]
+radius = 111.005
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_emrij")
 player_stats = ExtResource("2_hiyah")
@@ -60,5 +63,17 @@ sprite_frames = SubResource("SpriteFrames_8efid")
 frame_progress = 0.513931
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2, 10)
 shape = SubResource("CircleShape2D_br3gd")
+
+[node name="HitBoxArea" type="Area2D" parent="."]
+z_index = 10
+collision_layer = 3
+collision_mask = 3
+
+[node name="HitBoxCollider" type="CollisionShape2D" parent="HitBoxArea"]
+position = Vector2(3, 13)
+shape = SubResource("CircleShape2D_n871e")
+
+[connection signal="area_entered" from="HitBoxArea" to="." method="_on_hit_box_area_area_entered"]

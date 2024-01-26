@@ -12,6 +12,7 @@ extends Control
 @onready var animation_player = $AnimationPlayer
 
 func _ready():
+	size=get_viewport_rect().size
 	beak.play("default")
 	animation_player.play("scene_opening")
 

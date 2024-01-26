@@ -1,9 +1,11 @@
-res://scenes/player.tscn
-res://scripts/game.gd
-res://scripts/player.gd
 res://scenes/game.tscn
-res://scripts/enemy.gd
+res://scenes/player.tscn
 res://scenes/enemy.tscn
 res://scenes/spawner.tscn
 res://scenes/upgrade_screen.tscn
-res://scenes/area_2d_collision.tscn
+res://scripts/player.gd
+res://scripts/enemy.gd
+res://scripts/enemy_hitbox.gd
+res://scenes/enemy2.tscn
+res://scripts/game.gd
+res://scripts/upgrade_screen.gd

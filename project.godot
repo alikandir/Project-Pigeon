@@ -27,6 +27,12 @@ BackgroundMusic="*res://scenes/background_music.tscn"
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_physics/layer_1="Floor"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Player"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

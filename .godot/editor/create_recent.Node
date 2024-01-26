@@ -1,5 +1,8 @@
-Area2D
+CanvasLayer
+RigidBody2D
+Sprite2D
 CollisionShape2D
+Area2D
 AnimationPlayer
 AnimationTree
 Button
@@ -10,6 +13,3 @@ Node
 BodyParts
 VBoxContainer
 Panel
-CharacterBody2D
-Timer
-VisibleOnScreenNotifier2D

@@ -1,13 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://7mjoq5x80nwc"]
+[gd_scene load_steps=9 format=3 uid="uid://7mjoq5x80nwc"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_dh0mp"]
-[ext_resource type="PackedScene" uid="uid://8he7o70og82s" path="res://scenes/enemy.tscn" id="2_srfnq"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_f1uvt"]
+[ext_resource type="Texture2D" uid="uid://ch0ugua8r487f" path="res://icon.svg" id="3_42gyc"]
+[ext_resource type="Script" path="res://scripts/enemy_hitbox.gd" id="4_uaqi1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa6gh"]
+size = Vector2(131, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_47l2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_42gyc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awkf2"]
+size = Vector2(139, 158)
+
+[sub_resource type="PackedScene" id="PackedScene_wcnn5"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Enemy", "collision_layer", "collision_mask", "script", "direction", "speed", "CharacterBody2D", "CollisionShape2D", "visible", "position", "shape", "AnimatedSprite2D", "texture_filter", "sprite_frames", "VisibleOnScreenNotifier2D", "scale", "EnemyHitboxArea", "Area2D", "HitboxShape"),
+"node_count": 6,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 6, 0, -1, 5, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 1, 0, 0, 0, 7, 7, -1, 3, 8, 4, 9, 5, 10, 6, 0, 0, 0, 11, 11, -1, 2, 12, 2, 13, 7, 0, 0, 0, 14, 14, -1, 2, 9, 8, 15, 9, 0, 0, 0, 17, 16, -1, 3, 1, 10, 2, 10, 3, 11, 1, 0, 4, 0, 7, 18, -1, 2, 9, 12, 10, 13, 0),
+"variants": [2, ExtResource("2_f1uvt"), 1, 5000.0, false, Vector2(-0.5, -1), SubResource("RectangleShape2D_fa6gh"), SubResource("SpriteFrames_47l2x"), Vector2(5.72205e-06, -1), Vector2(6.6, 6.5), 3, ExtResource("4_uaqi1"), Vector2(-1.5, -14), SubResource("RectangleShape2D_awkf2")],
+"version": 3
+}
 
 [node name="Spawner" type="Node2D"]
 position = Vector2(459, 273)
 script = ExtResource("1_dh0mp")
 spawn_rate = 1.0
-enemies_to_spawn = Array[PackedScene]([ExtResource("2_srfnq")])
+enemies_to_spawn = Array[PackedScene]([SubResource("PackedScene_wcnn5")])
 
 [node name="Timer" type="Timer" parent="."]
 
