@@ -3,10 +3,11 @@ class_name Enemy
 @export var direction:int
 @export var speed:float
 
-var max_health = 40
-var current_health = max_health
+var enemy_max_health = 40
+var enemy_current_health = enemy_max_health
 var damage_pushback:=Vector2(15,15)
 var invincibilty_time:float=0.3
+const enemy_damage = 5
 
 var is_moving:bool=true
 
@@ -16,9 +17,9 @@ func _process(delta):
 func apply_damage(damage_amount:float,direction:Vector2):
 	if monitoring:
 		modulate=Color(1,1,1,0.3)
-		current_health-=damage_amount
-		printerr(current_health)
-		if(current_health<=0):queue_free()
+		enemy_current_health-=damage_amount
+		printerr("enemy health: " + str(enemy_current_health))
+		if(enemy_current_health<=0):queue_free()
 		position+=direction*damage_pushback
 		monitoring=false
 		is_moving=false

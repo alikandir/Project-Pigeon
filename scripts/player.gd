@@ -1,9 +1,16 @@
 extends CharacterBody2D
+
+const Enemy = preload("res://scripts/enemy.gd")
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var beak = $BodyParts/Beak
 @onready var wings = $BodyParts/Wings
 @onready var tail = $BodyParts/Tail
 var damage = 10
+var max_health = 100
+var current_health = max_health
+var enemy_damage = Enemy.enemy_damage
+
 
 @export var joystick:CustomVirtualJoystick
 var friction = 2
@@ -47,3 +54,6 @@ func _on_hit_box_area_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.apply_damage(damage,position.direction_to(area.global_position))
 		print("damage implied")
+		current_health -= enemy_damage
+		print("bird health: " + str(current_health))
+	
