@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkoucsxhus00n"]
+[gd_scene load_steps=11 format=3 uid="uid://bkoucsxhus00n"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_m4cev"]
 [ext_resource type="PackedScene" uid="uid://de82qgrnv8shf" path="res://scenes/player.tscn" id="2_x1xau"]
 [ext_resource type="PackedScene" uid="uid://t25itj8nv2g0" path="res://scenes/area_2d_collision.tscn" id="3_b4mip"]
 [ext_resource type="Script" path="res://scripts/ExampleLevel.gd" id="3_f8vwv"]
 [ext_resource type="Script" path="res://scripts/saver_and_loader.gd" id="4_4ejsg"]
+[ext_resource type="PackedScene" uid="uid://cyraebwceyjf2" path="res://scenes/police_enemy.tscn" id="4_l0ecp"]
 [ext_resource type="PackedScene" uid="uid://7mjoq5x80nwc" path="res://scenes/spawner.tscn" id="5_6wpw3"]
 [ext_resource type="Resource" uid="uid://bxny5bfle0pkq" path="res://resources/player_stats.tres" id="5_an8px"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick.tscn" id="6_fvs8i"]
@@ -17,7 +18,7 @@ script = ExtResource("1_m4cev")
 
 [node name="Utilities" type="Node" parent="Level Layer"]
 
-[node name="Spawner" parent="Level Layer/Utilities" instance=ExtResource("5_6wpw3")]
+[node name="EnemySpawner" parent="Level Layer/Utilities" instance=ExtResource("5_6wpw3")]
 position = Vector2(588, 517)
 spawn_rate = 4.0
 spawn_to_left = true
@@ -26,6 +27,12 @@ enemies_to_spawn = Array[PackedScene]([ExtResource("7_4yllx")])
 [node name="SaverAndLoader" type="Node" parent="Level Layer/Utilities"]
 script = ExtResource("4_4ejsg")
 player = ExtResource("5_an8px")
+
+[node name="PoliceSpawner" parent="Level Layer/Utilities" instance=ExtResource("5_6wpw3")]
+position = Vector2(808, 550)
+is_police_spawner = true
+spawn_police_interval = 2
+enemies_to_spawn = Array[PackedScene]([ExtResource("4_l0ecp")])
 
 [node name="Player" parent="Level Layer" node_paths=PackedStringArray("joystick") instance=ExtResource("2_x1xau")]
 top_level = true

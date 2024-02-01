@@ -11,22 +11,25 @@ var max_health = 100
 var current_health = max_health
 var enemy_damage = Enemy.enemy_damage
 
-
 @export var joystick:CustomVirtualJoystick
 var friction = 2
 @export var player_stats:PlayerStats
 
 var player_body_parts=preload("res://scripts/player_body_parts.gd")
 
+var enemy_kill_count:int=0
+
 func _ready():
 	animated_sprite_2d.play("default")
 	### ÖRNEK: beak.texture=player_body_parts.beak_sprites[player_stats.beak_sprite_index]
+	
+	Signals.connect("enemy_death",Callable(self,"_on_enemy_death"))
 func _process(delta: float) -> void:
 	animation_control()
 	look_at(position + joystick.output) #Movement vektör ile rotation takibi
 	slow_down_inertia(delta)
 	move_player(delta)
-	
+	Signals.get_position.emit(global_position)
 
 
 
@@ -53,7 +56,9 @@ func move_player(delta):
 func _on_hit_box_area_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.apply_damage(damage,position.direction_to(area.global_position))
-		print("damage implied")
 		current_health -= enemy_damage
-		print("bird health: " + str(current_health))
-	
+
+
+func _on_enemy_death():
+	enemy_kill_count+=1
+	Signals.enemy_kill_count.emit(enemy_kill_count)

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var saver_and_loader:SaverAndLoader = $Utilities/SaverAndLoader as SaverAndLoader
+@onready var saver_and_loader:SaverAndLoader =$"Level Layer/Utilities/SaverAndLoader" as SaverAndLoader
 @onready var label = $"UI Layer/Label"
 @onready var player = $"Level Layer/Player"
 @onready var shop_button = $"UI Layer/ShopButton"

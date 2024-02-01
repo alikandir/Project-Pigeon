@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyraebwceyjf2"]
+
+[ext_resource type="Texture2D" uid="uid://bt4syugargl4a" path="res://sprites/Officer_sheet_unboxed_0.png" id="1_3ilur"]
+[ext_resource type="Script" path="res://scripts/police_enemy.gd" id="1_4pbyc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2fe0a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64utk"]
+atlas = ExtResource("1_3ilur")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coreu"]
+atlas = ExtResource("1_3ilur")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acn6p"]
+atlas = ExtResource("1_3ilur")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py7ou"]
+atlas = ExtResource("1_3ilur")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abrk2"]
+atlas = ExtResource("1_3ilur")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw60p"]
+atlas = ExtResource("1_3ilur")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j487r"]
+atlas = ExtResource("1_3ilur")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cdqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64utk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coreu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acn6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py7ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abrk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw60p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j487r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PoliceEnemy" type="Area2D" groups=["Enemy"]]
+scale = Vector2(5, 5)
+script = ExtResource("1_4pbyc")
+move_speed = 100.0
+range_to_start_following = 300.0
+enemy_max_health = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2fe0a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3cdqf")
+frame_progress = 0.600914
