@@ -66,6 +66,7 @@ animations = [{
 [node name="PoliceEnemy" type="Area2D" groups=["Enemy"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_4pbyc")
+fire_delay_in_seconds = 2.0
 move_speed = 100.0
 range_to_start_following = 300.0
 police_max_health = 50
@@ -77,6 +78,21 @@ shape = SubResource("CapsuleShape2D_2fe0a")
 sprite_frames = SubResource("SpriteFrames_3cdqf")
 frame_progress = 0.600914
 
+[node name="Gun" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(1.6, -2.6)
+
+[node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D/Gun"]
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 13.0
+color = Color(0.286275, 0.0980392, 0.00392157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="AnimatedSprite2D/Gun"]
+offset_left = 1.0
+offset_right = 3.0
+offset_bottom = 4.0
+color = Color(0.415686, 0.258824, 0.0901961, 1)
+
 [node name="Health" type="ProgressBar" parent="."]
 modulate = Color(0.952941, 0.188235, 0.258824, 1)
 offset_left = -9.0
@@ -86,3 +102,7 @@ offset_bottom = 6.0
 scale = Vector2(0.2, 0.2)
 max_value = 50.0
 show_percentage = false
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="FireDelayTimer" to="." method="_on_fire_delay_timer_timeout"]

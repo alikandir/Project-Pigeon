@@ -25,6 +25,7 @@ func _ready():
 	### ÖRNEK: beak.texture=player_body_parts.beak_sprites[player_stats.beak_sprite_index]
 	
 	Signals.connect("enemy_death",Callable(self,"_on_enemy_death"))
+	update_health()
 func _process(delta: float) -> void:
 	animation_control()
 	look_at(position + joystick.output) #Movement vektör ile rotation takibi
@@ -32,8 +33,13 @@ func _process(delta: float) -> void:
 	move_player(delta)
 	Signals.get_position.emit(global_position)
 
-func _physics_process(delta):
+func take_damage(amount):
+	current_health-=amount
 	update_health()
+	if current_health<=0:
+		queue_free()
+func _physics_process(delta):
+	pass
 
 func animation_control() -> void:
 	if velocity.x==0:
@@ -58,7 +64,7 @@ func move_player(delta):
 func _on_hit_box_area_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.apply_damage(damage,position.direction_to(area.global_position))
-		current_health -= enemy_damage
+
 
 
 func _on_enemy_death():
@@ -68,4 +74,4 @@ func _on_enemy_death():
 func update_health():
 	hp_bar.value = current_health
 	hp_bar.max_value = max_health
-	
+

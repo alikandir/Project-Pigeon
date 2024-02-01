@@ -49,3 +49,5 @@ func update_enemy_health():
 func _on_body_entered(body):
 	if body.is_in_group("Level"):
 		is_moving=false
+	if body.is_in_group("Player"):
+		body.take_damage(enemy_damage)
