@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const Enemy = preload("res://scripts/enemy.gd")
 
+@onready var hp_bar = $"../../UI Layer/HP"
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var beak = $BodyParts/Beak
 @onready var wings = $BodyParts/Wings
@@ -12,7 +13,7 @@ var current_health = max_health
 var enemy_damage = Enemy.enemy_damage
 
 @export var joystick:CustomVirtualJoystick
-var friction = 2
+var friction = 1.2
 @export var player_stats:PlayerStats
 
 var player_body_parts=preload("res://scripts/player_body_parts.gd")
@@ -31,7 +32,8 @@ func _process(delta: float) -> void:
 	move_player(delta)
 	Signals.get_position.emit(global_position)
 
-
+func _physics_process(delta):
+	update_health()
 
 func animation_control() -> void:
 	if velocity.x==0:
@@ -62,3 +64,8 @@ func _on_hit_box_area_area_entered(area):
 func _on_enemy_death():
 	enemy_kill_count+=1
 	Signals.enemy_kill_count.emit(enemy_kill_count)
+
+func update_health():
+	hp_bar.value = current_health
+	hp_bar.max_value = max_health
+	

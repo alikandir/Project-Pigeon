@@ -17,4 +17,14 @@ texture = ExtResource("2_j7lcn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ltamq")
 
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.882353, 0.313726, 0.321569, 1)
+offset_left = -67.0
+offset_top = -95.0
+offset_right = 1233.0
+offset_bottom = 135.0
+scale = Vector2(0.1, 0.1)
+max_value = 20.0
+show_percentage = false
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

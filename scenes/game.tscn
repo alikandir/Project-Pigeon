@@ -101,6 +101,14 @@ offset_bottom = 90.0
 theme_override_font_sizes/font_size = 32
 text = "Shop"
 
+[node name="HP" type="ProgressBar" parent="UI Layer"]
+modulate = Color(0.360784, 0.960784, 0.639216, 1)
+offset_left = 753.0
+offset_top = 556.0
+offset_right = 1044.0
+offset_bottom = 584.0
+show_percentage = false
+
 [connection signal="pressed" from="UI Layer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI Layer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI Layer/Button3" to="." method="_on_button_3_pressed"]

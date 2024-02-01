@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/police_enemy.gd" id="1_4pbyc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2fe0a"]
+radius = 4.8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_64utk"]
 atlas = ExtResource("1_3ilur")
@@ -67,7 +68,7 @@ scale = Vector2(5, 5)
 script = ExtResource("1_4pbyc")
 move_speed = 100.0
 range_to_start_following = 300.0
-enemy_max_health = 40
+police_max_health = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2fe0a")
@@ -75,3 +76,13 @@ shape = SubResource("CapsuleShape2D_2fe0a")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3cdqf")
 frame_progress = 0.600914
+
+[node name="Health" type="ProgressBar" parent="."]
+modulate = Color(0.952941, 0.188235, 0.258824, 1)
+offset_left = -9.0
+offset_top = -21.0
+offset_right = 78.0
+offset_bottom = 6.0
+scale = Vector2(0.2, 0.2)
+max_value = 50.0
+show_percentage = false
