@@ -1,0 +1,211 @@
+[gd_scene load_steps=14 format=3 uid="uid://dx33r516t02ri"]
+
+[ext_resource type="Script" path="res://scripts/upgrade_screen.gd" id="1_1x53w"]
+[ext_resource type="Texture2D" uid="uid://bkwby5fnqqhgs" path="res://sprites/Red_Bird.png" id="1_mmrgr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytxtg"]
+bg_color = Color(0.133333, 0.572549, 0.6, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm5hg"]
+atlas = ExtResource("1_mmrgr")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jude"]
+atlas = ExtResource("1_mmrgr")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqote"]
+atlas = ExtResource("1_mmrgr")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8atbl"]
+atlas = ExtResource("1_mmrgr")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ki8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm5hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jude")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqote")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8atbl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cn2bt"]
+
+[sub_resource type="Animation" id="Animation_hngbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -644)]
+}
+
+[sub_resource type="Animation" id="Animation_8lmyo"]
+resource_name = "scene_closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.366022, 1.07177),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -651)]
+}
+
+[sub_resource type="Animation" id="Animation_fuu0e"]
+resource_name = "scene_opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.15932, 1),
+"update": 0,
+"values": [Vector2(0, -644), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbbfi"]
+_data = {
+"RESET": SubResource("Animation_hngbs"),
+"scene_closing": SubResource("Animation_8lmyo"),
+"scene_opening": SubResource("Animation_fuu0e")
+}
+
+[node name="UpgradeScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -644.0
+offset_right = 4608.0
+offset_bottom = 1948.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1x53w")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytxtg")
+
+[node name="LeftContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = -150.0
+offset_right = 350.0
+offset_bottom = 150.0
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="WingUpgrade" type="Button" parent="Panel/LeftContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Wing Upgrade"
+
+[node name="BeakUpgrade" type="Button" parent="Panel/LeftContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Beak Upgrade"
+
+[node name="RightContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -150.0
+offset_right = -150.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="TailUpgrade" type="Button" parent="Panel/RightContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Tail Upgrade"
+
+[node name="???Upgrade" type="Button" parent="Panel/RightContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "???"
+
+[node name="PlayerSprites" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Beak" type="AnimatedSprite2D" parent="Panel/PlayerSprites"]
+sprite_frames = SubResource("SpriteFrames_2ki8y")
+
+[node name="Wings" type="AnimatedSprite2D" parent="Panel/PlayerSprites"]
+sprite_frames = SubResource("SpriteFrames_cn2bt")
+
+[node name="Tail" type="AnimatedSprite2D" parent="Panel/PlayerSprites"]
+
+[node name="Body" type="AnimatedSprite2D" parent="Panel/PlayerSprites"]
+
+[node name="CloseShop" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -111.0
+offset_right = 109.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CloseShop"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wbbfi")
+}
+
+[connection signal="pressed" from="Panel/LeftContainer/WingUpgrade" to="." method="_on_wing_upgrade_pressed"]
+[connection signal="pressed" from="Panel/LeftContainer/BeakUpgrade" to="." method="_on_beak_upgrade_pressed"]
+[connection signal="pressed" from="Panel/RightContainer/TailUpgrade" to="." method="_on_tail_upgrade_pressed"]
+[connection signal="pressed" from="Panel/CloseShop" to="." method="_on_close_shop_pressed"]

@@ -1,10 +1,7 @@
-res://scenes/police_enemy.tscn
 res://scenes/game.tscn
-res://scripts/police_enemy.gd
 res://scenes/player.tscn
 res://scenes/spawner.tscn
 res://scenes/enemy.tscn
+res://scenes/police_enemy.tscn
 res://scenes/bullet.tscn
-res://scripts/bullet.gd
-res://scripts/player.gd
-res://scripts/enemy.gd
+res://scenes/area_2d_collision.tscn

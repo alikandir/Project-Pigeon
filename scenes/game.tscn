@@ -1,15 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkoucsxhus00n"]
+[gd_scene load_steps=13 format=3 uid="uid://bkoucsxhus00n"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_m4cev"]
 [ext_resource type="PackedScene" uid="uid://de82qgrnv8shf" path="res://scenes/player.tscn" id="2_x1xau"]
 [ext_resource type="PackedScene" uid="uid://t25itj8nv2g0" path="res://scenes/area_2d_collision.tscn" id="3_b4mip"]
-[ext_resource type="Script" path="res://scripts/ExampleLevel.gd" id="3_f8vwv"]
 [ext_resource type="Script" path="res://scripts/saver_and_loader.gd" id="4_4ejsg"]
 [ext_resource type="PackedScene" uid="uid://cyraebwceyjf2" path="res://scenes/police_enemy.tscn" id="4_l0ecp"]
 [ext_resource type="PackedScene" uid="uid://7mjoq5x80nwc" path="res://scenes/spawner.tscn" id="5_6wpw3"]
 [ext_resource type="Resource" uid="uid://bxny5bfle0pkq" path="res://resources/player_stats.tres" id="5_an8px"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick.tscn" id="6_fvs8i"]
 [ext_resource type="PackedScene" uid="uid://dwh6ni7iertvl" path="res://scenes/enemy.tscn" id="7_4yllx"]
+[ext_resource type="Texture2D" uid="uid://btk2itct2w7lq" path="res://sprites/background.png" id="11_8c0ys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6o5vp"]
+size = Vector2(277.152, 15.1914)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwu76"]
+size = Vector2(6.78394, 37.5708)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_m4cev")
@@ -43,24 +49,25 @@ joystick = NodePath("../../UI Layer/Joystick")
 position = Vector2(-1, 11)
 scale = Vector2(0.355874, 0.355874)
 
-[node name="ExampleLevel" type="StaticBody2D" parent="Level Layer" groups=["Level"]]
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("3_f8vwv")
-
-[node name="Polygon2D" type="Polygon2D" parent="Level Layer/ExampleLevel"]
-color = Color(0.835294, 0.270588, 0.380392, 1)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level Layer/ExampleLevel"]
-polygon = PackedVector2Array(40, 372, 33, 639, 1141, 645, 1140, 29, 1066, 29, 1067, 615, 71, 600, 79.314, 259.719, 83, 97, 1145, 34, 1138, 14, 85, 27, 25, 25)
+[node name="Camera2D" type="Camera2D" parent="Level Layer/Player"]
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 8000
+limit_bottom = 3500
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 20.0
 
 [node name="UI Layer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="UI Layer"]
-offset_left = 295.0
-offset_top = 162.0
-offset_right = 457.0
-offset_bottom = 243.0
+offset_left = 797.0
+offset_top = 558.0
+offset_right = 959.0
+offset_bottom = 639.0
+text = "HP"
 
 [node name="Button" type="Button" parent="UI Layer"]
 offset_left = 268.0
@@ -103,11 +110,37 @@ text = "Shop"
 
 [node name="HP" type="ProgressBar" parent="UI Layer"]
 modulate = Color(0.360784, 0.960784, 0.639216, 1)
-offset_left = 753.0
-offset_top = 556.0
-offset_right = 1044.0
-offset_bottom = 584.0
+offset_left = 839.0
+offset_top = 608.0
+offset_right = 1130.0
+offset_bottom = 636.0
 show_percentage = false
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(4010, 1760)
+texture = ExtResource("11_8c0ys")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+
+[node name="alt sınır" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(-29.3, 1825.5)
+scale = Vector2(29.56, 8.36)
+shape = SubResource("RectangleShape2D_6o5vp")
+
+[node name="üst sınır" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(-29, -1819)
+scale = Vector2(29.56, 8.36)
+shape = SubResource("RectangleShape2D_6o5vp")
+
+[node name="sağ sınır" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(4062.1, 7.49976)
+scale = Vector2(16.4797, 99.2527)
+shape = SubResource("RectangleShape2D_rwu76")
+
+[node name="sol sınır" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(-4075, 7.00012)
+scale = Vector2(16.4797, 99.2527)
+shape = SubResource("RectangleShape2D_rwu76")
 
 [connection signal="pressed" from="UI Layer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI Layer/Button2" to="." method="_on_button_2_pressed"]
