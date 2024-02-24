@@ -20,12 +20,21 @@ size = Vector2(6.78394, 37.5708)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_m4cev")
 
+[node name="Player" parent="." node_paths=PackedStringArray("joystick") instance=ExtResource("2_x1xau")]
+top_level = true
+position = Vector2(927, 521)
+joystick = NodePath("../UI Layer/Joystick")
+
+[node name="CollisionCheck" parent="Player" instance=ExtResource("3_b4mip")]
+position = Vector2(-1, 11)
+scale = Vector2(0.355874, 0.355874)
+
 [node name="Level Layer" type="CanvasLayer" parent="."]
 
 [node name="Utilities" type="Node" parent="Level Layer"]
 
 [node name="EnemySpawner" parent="Level Layer/Utilities" instance=ExtResource("5_6wpw3")]
-position = Vector2(588, 517)
+position = Vector2(5260, 3357)
 spawn_rate = 4.0
 spawn_to_left = true
 enemies_to_spawn = Array[PackedScene]([ExtResource("7_4yllx")])
@@ -39,26 +48,6 @@ position = Vector2(808, 550)
 is_police_spawner = true
 spawn_police_interval = 2
 enemies_to_spawn = Array[PackedScene]([ExtResource("4_l0ecp")])
-
-[node name="Player" parent="Level Layer" node_paths=PackedStringArray("joystick") instance=ExtResource("2_x1xau")]
-top_level = true
-position = Vector2(180, 345)
-joystick = NodePath("../../UI Layer/Joystick")
-
-[node name="CollisionCheck" parent="Level Layer/Player" instance=ExtResource("3_b4mip")]
-position = Vector2(-1, 11)
-scale = Vector2(0.355874, 0.355874)
-
-[node name="Camera2D" type="Camera2D" parent="Level Layer/Player"]
-process_callback = 0
-limit_left = 0
-limit_top = 0
-limit_right = 8000
-limit_bottom = 3500
-position_smoothing_enabled = true
-position_smoothing_speed = 20.0
-rotation_smoothing_enabled = true
-rotation_smoothing_speed = 20.0
 
 [node name="UI Layer" type="CanvasLayer" parent="."]
 

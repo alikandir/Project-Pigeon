@@ -5,3 +5,5 @@ res://scenes/enemy.tscn
 res://scenes/police_enemy.tscn
 res://scenes/bullet.tscn
 res://scenes/area_2d_collision.tscn
+res://scripts/player.gd
+res://scripts/game.gd

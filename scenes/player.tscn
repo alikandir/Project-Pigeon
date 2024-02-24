@@ -75,4 +75,15 @@ collision_mask = 3
 position = Vector2(81, 4)
 shape = SubResource("CircleShape2D_n871e")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 8000
+limit_bottom = 3500
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 20.0
+
 [connection signal="area_entered" from="HitBoxArea" to="." method="_on_hit_box_area_area_entered"]

@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 const Enemy = preload("res://scripts/enemy.gd")
 
-@onready var hp_bar = $"../../UI Layer/HP"
+
+@onready var hp_bar = $"../UI Layer/HP"
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var beak = $BodyParts/Beak
 @onready var wings = $BodyParts/Wings

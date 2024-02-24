@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var saver_and_loader:SaverAndLoader =$"Level Layer/Utilities/SaverAndLoader" as SaverAndLoader
 @onready var label = $"UI Layer/Label"
-@onready var player = $"Level Layer/Player"
+@onready var player = $Player
+
 @onready var shop_button = $"UI Layer/ShopButton"
 
 var pl_upgrade_screen=preload("res://scenes/upgrade_screen.tscn")

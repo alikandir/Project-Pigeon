@@ -26,8 +26,8 @@ Signals="*res://autoloads/signals.gd"
 
 [display]
 
-window/size/viewport_width=8000
-window/size/viewport_height=3500
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=4
 
 [file_customization]
